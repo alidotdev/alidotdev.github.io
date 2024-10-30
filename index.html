@@ -1,266 +1,1494 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>To Do List</title>
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link type="image/png"  rel="icon" href="assets\img\profile-icon.png">
+    <title>Muhammad Ali Murtaza </title>
+    
+    <style>
+        /* Animation styles */
+        #typing-animation {
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            color: #5361FF;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(20, end) infinite;
+        }
+
+        #typing-animation:before {
+            content: "";
+            /* position: absolute; */
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #ccc;
+            animation: typing-cursor 0.5s ease-in-out infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes typing-cursor {
+            from {
+                width: 3px;
+            }
+
+            to {
+                width: 0;
+            }
+        }
+    </style>
+
 </head>
 
-<body onload="loading()">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">ToDo's List</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Muhammad Ali Murtaza</a>
+            </div>
+
+            <!-- <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#achiements" class="nav__link">Atchivements</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link ">Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class=" nav__item">
+                        <a href="https://docs.google.com/document/d/1Yh0-kde0umBMshKZayy57UnuQCJicQaA/export?format=pdf"
+                            class=" download__cv" target="_blank">CV <i class='bx bxs-download bx-tada'></i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            items
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                </ul>
+            </div> -->
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#achievements" class="nav__link">Achievements</a></li>
+                    
+            
+                    <!-- Dropdown Menu for Additional Sections -->
+                    <li class="nav__item nav__dropdown">
+                        <a href="#" class="nav__link">More <i class="bx bx-chevron-down"></i></a>
+                        <ul class="nav__dropdown-content">
+                            <li><a href="#volunteer-activities">Volunteer Activities</a></li>
+                            <li><a href="#international-hackathons">Hackathons</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#education">Education</a></li>
+                            <li><a href="#experience">Experience</a></li>
+                            <li><a href="#public-webinars">Public Webinars</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            
+                    <!-- CV Download Link -->
+                    <li class="nav__item">
+                        <a href="https://docs.google.com/document/d/1Yh0-kde0umBMshKZayy57UnuQCJicQaA/export?format=pdf" class="download__cv" target="_blank">CV <i class='bx bxs-download bx-tada'></i></a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
             </div>
-        </div>
-    </nav>
-
-    <div class="container  w-50 p-4">
-
-        <h2 class="text-center">
-            To Do Lists
-        </h2>
-
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" aria-describedby="titleInput">
-            <div id="titleBelowLable" class="form-text">Enter what to do.</div>
-        </div>
-        <div class="mb-3">
-            <label for="Description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3" spellcheck="true"></textarea>
-        </div>
-
-        <button class="btn btn-primary" onclick="AddWork(); this.blur(); update(); ">Add to List</button>
-        <button class="btn btn-primary" onclick=" this.blur(); ClearContent(); ">Clear List</button>
-
-
-        <h2 id="items" class="my-4">
-            Your items
-        </h2>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th style="width: 2%" scope="col">Sr.</th>
-                    <th style="width:12%" scope="col">Task Title</th>
-                    <th style="width:30%" scope="col">Description</th>
-                    <th style="width:10%; text-align: 2px;" scope="col">Actions</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-
-
-            </tbody>
-        </table>
-
-
-
-
-    </div>
-
-
-
-
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-
-        </script>
-    <script>
-        var title;
-        var des;
-        function AddWork() {
-
-
-            // alert("I am in AddList Function");
-            title = document.getElementById("title").value;
-            des = document.getElementById("description").value;
-            
-            if (title !== "") {
-                if (localStorage.getItem("items") == null) {
-                    itemsArray = [];
-                    console.log("I am in if block");
-                    itemsArray.push([title, des]);
-                    localStorage.setItem("items", JSON.stringify(itemsArray));
-                    console.log(localStorage.getItem("items"));
-                }
-                else {
-                    storedData = localStorage.getItem("items")
-                    console.log("I am in else block");
-                    itemsArray = JSON.parse(storedData);
-                    itemsArray.push([title, des]);
-                    localStorage.setItem("items", JSON.stringify(itemsArray));
-                    console.log(localStorage.getItem("items"));
-                }
-                document.getElementById("title").value = "";
-                document.getElementById("description").value = "";
-            }
-            else
-            {
-                alert("NULL Title can not be added");
-            }
-
-
-        };
-
-        function deleted(itemIndex) {
-            itemsArray = JSON.parse(localStorage.getItem("items"));
-            itemsArray.splice(itemIndex, 1);
-            localStorage.setItem("items", JSON.stringify(itemsArray));
-            update();
-        };
-
-        function loading() {
-            
-            update();
-            
-        }
-
-        // Populating The Table 
-
-        function update() {
-            let tableBody = document.getElementById("tableBody");
-            let str = "";
-            let itemsArray = JSON.parse(localStorage.getItem("items"));
-
-            itemsArray.forEach((element, index) => {
-                str += `<tr>
-                    <th scope="row">${index + 1}</th>
-                    <td>${element[0]}</td>
-                    <td>${element[1]}</td>
-                    <td><button type="button" class="btn btn-sm btn-danger" onclick="deleted(${index}); this.blur();">Delete</button>
-                        <button type="button" class="btn btn-sm btn-warning" onclick="editing(${index}); this.blur();">Edit</button>
-                        </td>
-                    
-                  </tr>`
-            });
-
-            document.getElementById("tableBody").innerHTML = str;
-        }
-
-        function ClearContent() {
-            if(confirm("Do you really want to clear the List ? "))
-            {
-                localStorage.clear();
-                document.getElementById("tableBody").innerHTML = "";
-            }
-            
-        };
-
-        function editing(indexes) {
             
 
-            itemsArray = JSON.parse(localStorage.getItem("items"));
-            // <td><input type="text" class="form-control" id="desForNewData" value="${des}" aria-describedby="titleInput"></td>
-            str = "";
-            
-            itemsArray.forEach((element, index) => {
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+
+                <h2 class="ml" style="color: white; padding-left: 10px;">I'M MACHINE LEARNING ENGINEER</h2>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
+                </div>
+                <img src="assets/img/My_Pic-removebg-preview.png" alt="" class="home__img">
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title"> <i class='bx bxs-user '></i> <span></span>About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/My_Pic-removebg-preview.png" alt="" style="object-fit: contain;">
+
+                </div>
+
+                <div>
+                    <h3 class="about__subtitle">I'm Muhammad Ali Murtaza</h3>
+                    <!-- Element to contain animated typing -->
+                    <span class="ani" id="typing-animation" style="color: rgba(0, 0, 0, 0.69); "></span>
+
+                    <script>
+
+                        // Initialize the typing animation
+                        const typingAnimationElement = document.getElementById('typing-animation');
+
+                        // Create an array of typing text
+                        const typingTexts = [
+                            'Machine learning engineer  ',
+                            'Deep learning engineer  ',
+                            'Coder on LeetCode ',
+                            'Problem solver',
+                            'Artical writer ',
+                            'Critical thinker'
+                        ];
+                        // Create a function to display the typing animation for a given text
+                        function playTypingAnimation(text) {
+                            // Loop through each character and add it to the element
+                            for (let i = 0; i < text.length; i++) {
+                                setTimeout(() => {
+                                    typingAnimationElement.textContent += text[i];
+                                }, i * 100); // Increase the delay to slow down the typing animation
+                            }
+
+                            // Once the animation is complete, toggle the cursor visibility
+                            setTimeout(() => {
+                                toggleCursor();
+                            }, text.length * 120);
+
+                            // Function to toggle cursor visibility
+                            function toggleCursor() {
+                                if (typingAnimationElement.textContent.endsWith('|')) {
+                                    typingAnimationElement.textContent = typingAnimationElement.textContent.slice(0, -1);
+                                } else {
+                                    typingAnimationElement.textContent += '|';
+                                }
+                            }
+
+                            // Restart the typing animation loop
+                            setTimeout(() => {
+                                typingAnimationElement.textContent = ''; // Clear the text
+                                playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]); // Start over with the next text
+                            }, (text.length + 1) * 120); // Wait for text to be fully typed before restarting
+                        }
+
+                        // Start the typing animation loop
+                        playTypingAnimation(typingTexts[0]);
+
+                    </script>
+
+                    <br>
+                    <br>
+                    <p class="about__text">
+                        I am a fresh graduate of University of Engineering and Technology (UET) Lahore on merit-based scholersip. As an AI enthusiast, it's quite fascinating to solve
+                        real-world problems using <b>Machine Learning</b> and <b>Deep Learing</b> for good.
+                        <br><br>
+                        Driven by this passion for applying Machine Learning and Deep Learning to solve real-world problems.
+                         I've honed my skills through personal projects, LeetCode challenges, and technical article writing. 
+                         My active participation in international hackathons showcases my strong leadership, 
+                         communication, and teamwork ability, my experience as a ML Engineer.
+                        <br>
+                        <h3>Technical Skills, Tools, & Programming</h3>
+                        <b>Skills:</b>  Data analysis, Machine learning, Deep learning, Natural Language processing, Data structures and algorithms.
+                        <br>
+
+                        <b>Programming languages: </b>
+                        Python, Flask, C++, C, C#, Java, Dart
+                        <br>
+                        <b>Tools: </b>
+                        Git and Github, VS code, Google Colab, Anaconda
+                        <br>
+                        
+
+                    </p>
+                    <br>
+                    <div class="about__social">
+                        <a href="https://www.linkedin.com/in/alidotdev" class="" target="_blank"><i class='about__social-icon bx bxl-linkedin bx-tada-hover'
+                                style="font-size: 25px;"></i></a>
+                        <a href="https://github.com/alidotdev" class="" target="_blank"><i class='about__social-icon bx bxl-github bx-tada-hover'
+                                style="font-size: 25px;"></i></a>
+                        <a href="https://medium.com/@gulhassanh49" class="" style="font-size: 25px;" target="_blank"><i class='about__social-icon bx bxl-medium bx-tada-hover'>
+                        </i></a>
+                        <a href="https://youtube.com/@alidotdev" class="" style="font-size: 25px;" target="_blank"><i class='about__social-icon bx bxl-youtube bx-tada-hover'></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="https://docs.google.com/document/d/1Yh0-kde0umBMshKZayy57UnuQCJicQaA/export?format=pdf"
+                target="_blank"> <button class="contact__button">CV 
+                    <i class='bx bxs-download bx-tada'style="font-size: 18px;"></i> </button></a>
+
+        </section>
+
+        <!-- Achivements section -->
+        <section class="about section" id="achievements">
+            <h2 class="section-title"><i class="bx bxs-award " ></i>Achievements</h2>
+            <div class="about__container bd-grid">
                 
-                if (indexes == index) {
-                    title = element[0];
-                    des = element[1];
-                    // alert("des : "+des);
-                    str += `<tr>
-                    <th scope="row">${index + 1}</th>
-                    <td><input type="text" class="form-control" id="titForNewData" value="${title}" aria-describedby="titleInput"></td>
+                <!-- First atchivement FYP -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>FYP (1st Place)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">University of Engineering and Technology Lahore</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Jan’24 —  Feb’24</span></div>
+                    </div>
+                   
+                    <p class="about__text">
+                        <ol>
+                            <li>Achieved <b>#1 Ranking</b> in final year project (FYP) idea competition among 16 universities participants. <p><a href="https://youtu.be/AHsmfIAsum4?si=dSK_K4aQ_iMMH8lQ" style="color: #e95959;">YouTube Video</a></p></li>
+                            <br>
+                        <p> <i>Note! check details of FYP below in projects section.</i></p>
+                        </ol>
+                       
+                    </p>
                     
-                    <td><textarea class="form-control" id="desForNewData" rows="3"  spellcheck="true">Loading...</textarea></td>
-                    <td><button type="button" class="btn btn-sm btn-success" onclick="SavingNewData(${index}); this.blur();">Save</button>
-                        <button type="button" class="btn btn-sm btn-secondary" onclick="update()"; this.blur();">Cancel</button>
-                        </td>
                     
-                  </tr>`
-                }
-                else
-                {
-                    str += `<tr>
-                    <th scope="row">${index + 1}</th>
-                    <td>${element[0]}</td>
-                    <td>${element[1]}</td>
-                    <td><button type="button" class="btn btn-sm btn-danger" onclick="deleted(${index}); this.blur();">Delete</button>
-                        <button type="button" class="btn btn-sm btn-warning" onclick="editing(${index}); this.blur();">Edit</button>
-                        </td>
-                    
-                  </tr>`
-                }
+                    <div class="row" style="display:flex;">
+                        <div class="col-6">
+                            <a href="https://youtu.be/AHsmfIAsum4?si=dSK_K4aQ_iMMH8lQ" target="_blank" rel="noopener noreferrer">
+                                <abbr title="Public anouncement"><i class="about__social-icon bx bxs-videos bx-tada-hover" ></i>
+                            </a>
+                        </div>
+                        <!-- <div class="col-4">
+                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
+                        </div> -->
+                        <!-- <div class="col-6">
+                           <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/5ERL7-jGTMenN76TLHYq6g?identity__email=gulhassanh49@gmail.com" target="_blank">
+                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a></abbr>
+                        </div> -->
+                    </div>
+
+                </div>
+                
+                
+                 <!-- Second atchivement Human Centered Design -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada"></i>Human Centered Design (2nd RunnerUp)
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">Sports Biomechanical Analysis</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">April 2023 </span></div>
+                    </div>
+                   
+                    <p class="about__text">
+                        <ol>
+                           <li> <b>3rd rank</b> in Human Centered Design with Sports Biomechanical Analysis among 30+ projects
+                        </li> <br>
+                        <!-- <li>Created impactful reports revealing trends and the human cost of disasters, highlighting the number of people severely and partially affected.</li> -->
+                        </ol>
+                    </p>
+
+                    <div class="row" style="display:flex;">
+                        <!-- <div class="col-6">
+                            <a href="https://www.youtube.com/live/PekZczFhDi4?si=MWKkObYGxrnk0Oyy&t=1630" target="_blank" rel="noopener noreferrer">
+                                <abbr title="Pitch of the project"><i class="about__social-icon bx bxs-videos bx-tada-hover" ></i>
+                            </a>
+                        </div> -->
+                        <!-- <div class="col-4">
+                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
+                        </div> -->
+                        <div class="col-6">
+                           <abbr title="Certificate"> <a href="https://drive.google.com/file/d/1LyoE-IEtYpHsbjk31tunozedZIGq2PuC/view?usp=sharing" target="_blank">
+                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a></abbr>
+                        </div>
+                    </div>
+
+                </div>
 
                 
-            })
-           
+                <!-- Third atchivement NASA Space App Challenge -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>NASA Space App Challenge
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">Participation</span>
+                        </div>
+                        <div class="col"> <span style="color: #5965e9; text-align:right;">Oct’5 2024 — Oct'6 2024 </span></div>
+                    </div>
 
-            document.getElementById("tableBody").innerHTML = str;
-            document.getElementById("desForNewData").value = des;
-            document.getElementById("titForNewData").focus();
-        }
+                    <p class="about__text" style="margin-top: 10px;">
+                    <ol>
+                        <li>Participated in the NASA Space Apps Challenge as part of an international team, utilizing real-time NASA data to develop innovative solutions.</li> <br>
+                        <li>Trained the ML model on historical race data to predict race outcomes based on weather, track characteristics, and past performance.</li>
+                        <!-- <li>Evaluated model performance using Accuracy, F1 score, and Precision and Recall. </li> -->
+                    </ol>  
+                    </p>
+                    
+                    <div class="row" style="display:flex;">
+                        <div class="col-6">
+                            <a href="https://www.linkedin.com/posts/alidotdev_nasaspaceappchallenge2024-activity-7249002187421347841-1CNt?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer">
+                               <abbr title="Linkedin Post"><i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></abbr> </a>
+                        </div>
+                        <!-- <div class="col-4">
+                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
+                        </div> -->
+                        <!-- <div class="col-6">
+                           <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/TeMHvYAKQTaUC5CP2eYBAQ" target="_blank">
+                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a></abbr>
+                        </div> -->
+                    </div>
 
-        function SavingNewData(index) {
-            arr = [document.getElementById("titForNewData").value, document.getElementById("desForNewData").value]
+                </div>
+                
+                <!--4th Achievment 3rd Meta Hacker Cup-->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Meta Hacker Cup</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col-6">
+                            <span style="color: #5965e9; text-align: center;">Round 1</span>
+                        </div>
+                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">October 5 2024</span>
+                        </div>
+                    </div>
+                
+                    <p class="about__text">
+                     <ol>
+                        <li>  Competed in Meta Hacker Cup 2024, showcasing problem-solving skills and algorithmic efficiency. Achieved an impressive 97th rank in Pakistan during Round 1. </li>
+                            <br>
+                            <!-- <li>Evaluated model performance using F1 score, Cohen's Kappa, and confusion matrix to provide a detailed analysis 
+                                of classification effectiveness and error distribution.</li> -->
+                     </ol>
+                    </p>
+
+                    <div class="row" style="display:flex;">
+                        <div class="col-6">
+                          <abbr title="Linkedin Post">  <a href="https://www.linkedin.com/posts/alidotdev_metahackercup2024-icodeguru-icodeguru-activity-7249714098156818435-zKBU?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer">
+                            <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></a></abbr>
+                        </div>
+                        <!-- <div class="col-4">
+                            <i class="about__social-icon bx bxl-github" style="font-size: 30px; "></i>
+                        </div> -->
+                        <!-- <div class="col-6">
+                          <abbr title="Badge from org"> <a href="https://au.badgr.com/public/assertions/Nn9MpxPVRW2-JIJMm2N3vQ?identity__email=gulhassanh49@gmail.com" target="_blank">
+                            <i class='about__social-icon bx bxs-badge-check bx-tada-hover' ></i></a> </abbr>
+                        
+                        </div> -->
+                    </div>
+                </div>
+
+               
+                <!-- 5th Atchivement 50 Day Badge Streak-->
+
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>LeetCode 50 Day Streak</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col-12">
+                            <span style="color: #5965e9; text-align: center;">LeetCode</span>
+                        </div>
+                        <div class="col-6"> <span style="color: #5965e9; text-align: center;">September 2024</span>'
+                       
+                        </div>
+                    </div>
+                
+                    <p class="about__text">
+                        <ol>
+                            <li>Earned a <b> 50 streak badge on LeetCode,</b> demonstrating consistent dedication to problem-solving and coding practice.</li> 
+                            <!-- <li>Consistently ranked among the top 3 of 20 regional ambassadors, surpassing MoU signing targets by 99%.</li> <br> -->
+                            <!-- <li>Secured 6+ strategic partnerships between Hackmakers, universities, student groups, and companies.</li> -->
+                        </ol>
+                    </p>
+
+                    <div class="row" style="display:flex;">
+                        <div class="col-12">
+                            <abbr title="Linkedin Post">
+                            <a href="https://www.linkedin.com/posts/alidotdev_icodeguru-leetcode-codingjourney-activity-7245019728690245632-aUl_?utm_source=share&utm_medium=member_desktop" target="_blank">
+                                <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></a>
+                            </abbr>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6th Atchivement BS Scholarship -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bxs-medal bx-tada" ></i>Fully Funded Scholership</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col-12">
+                            <span style="color: #5965e9; text-align: center;">Higher Education Commission (HEC) Pakistan</span>
+                        </div>
+                        <!-- <div class="col-6"> <span style="color: #5965e9; text-align: center;"></span>
+                        </div> -->
+                    </div>
+                
+                    <p class="about__text">
+                        <ol>
+                            <li>Secured merit-based scholarship by HEC in BS from Goverment of Pakistan</li> <br>
+                            <!-- <li>Awarded a laptop as part of the PM's Scheme for ranking in the top 20 of the batch. </li> -->
+                        </ol>
+                    </p>
+                </div>
+
+
+            </div>
+
+            <!-- Volunteer Experiences -->
+            <section class="about section" id="volunteer-activities">
+            <h2 class="section-title"><i class="bx bxs-hand" ></i> Volunteer Activities</h2>
+            <div class="about__container bd-grid">
+            
+                <!-- Volunteer Activity 1 -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>DSA Lead Trainer</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">ICodeGuru, Remote – Silicon Valley, USA</span>
+                        </div>
+                        <div class="col">
+                            <span style="color: #5965e9; text-align:right;">Sep 2024 – Present</span>
+                        </div>
+                    </div>
+                    
+                    <p class="about__text">
+                        <ol>
+                            <li>Teaching 100+ underprivileged students core concepts of Data Structures and Algorithms in an engaging environment.</li><br>
+                            <li>Developed coding exercises and challenges to enhance students' problem-solving abilities. <a href="https://www.youtube.com/@alidotdev" style="color: #e95959;">Recorded Lectures</a></li><br>
+                            
+                        </ol>
+                    </p>
+                </div>
+            
+                <!-- Volunteer Activity 2 -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Teaching Assistant</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">Computer Science Department, UET Lahore, Pakistan</span>
+                        </div>
+                        <div class="col">
+                            <span style="color: #5965e9; text-align:right;">Oct 2021 – Feb 2023</span>
+                        </div>
+                    </div>
+                    
+                    <p class="about__text">
+                        <ol>
+                            <li>Assisted professors in teaching core computer science courses for 3 semesters, supporting over 100+ students in Programming Fundamentals, OOP, and DSA.</li><br>
+                            <li>Held weekly office hours to help students understand complex concepts, improve coding skills, and prepare for exams.</li>
+                        </ol>
+                    </p>
+                </div>
+            
+            </div>
+            </section>
+
+            <!-- International Hackathons -->
+            <section class="about section" id="international-hackathons">
+
+                <h2 class="section-title"><i class="bx bxs-card "></i> International Hackathons</h2>
+                <div class="about__container bd-grid">
+                    
+                    <!-- Project 1 - Build Fast Ship Hackathon -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/Focused_Study_Plateform.webp" alt="Focused Study Platform">
+                            <a href="https://lablab.ai/event/replit-and-cursor-hackathon/byte-busters/aptimi-your-productivity-partner" class="portfolio__link-name" target="_blank" title="See Video">
+                                <div class="portfolio__link">See Video</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i>Focused Study Platform</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: React, Node.js, Chat Bot, Replit</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Developed a study platform using the Pomodoro technique, where students can focus on timed study sessions with built-in features like study groups, notes management, and focus hours tracking.</li><br>
+                                <li>Integrated live chat for real-time communication between users and a bot-based study companion to track productivity and offer session guidance.</li>
+                            </ol>
+                        </p>
+                        <abbr title="GitHub"><a href="https://github.com/alidotdev/Build-fast-Ship-Hack" target="_blank"><i class="about__social-icon bx bxl-github bx-tada-hover"></i></a></abbr>
+                        <!-- <div class="col-12"> -->
+                            <abbr title="Linkedin Post">
+                            <a href="https://www.linkedin.com/posts/alidotdev_react-node-chatbot-activity-7254877123138519041-v_je?utm_source=share&utm_medium=member_desktop" target="_blank">
+                                <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></a>
+                            </abbr>
+                        <!-- </div> -->
+                    </div>
+            
+                    <!-- Project 2 - Generative AI Hackathon -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/speakbuddy.jpg" alt="SpeakBuddy">
+                            <a href="https://www.youtube.com/watch?v=Jbo9Z2Sk2io" class="portfolio__link-name" target="_blank" title="See Video">
+                                <div class="portfolio__link">See Video</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i>SpeakBuddy</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: Python, GPT-3, NLP, Streamlit, Hugging Face</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Built an AI-powered English-speaking practice bot that provides personalized feedback on pronunciation and vocabulary.</li><br>
+                                <li>Integrated speech recognition with real-time text analysis to offer interactive conversational practice and personalized learning paths.</li>
+                            </ol>
+                        </p>
+                        <abbr title="GitHub"><a href="https://github.com/reemamemon/SpeakBuddy" target="_blank"><i class="about__social-icon bx bxl-github bx-tada-hover"></i></a></abbr>
+                        <abbr title="Linkedin Post">
+                            <a href="https://www.linkedin.com/posts/alidotdev_generativeai-hackathon-llama-activity-7236397531952275458-S14P?utm_source=share&utm_medium=member_desktop" target="_blank">
+                                <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></a>
+                            </abbr>
+                    </div>
+            
+                    <!-- Project 3 - Hack the Loop -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/synapse-copilot.jpg" alt="Synapse Copilot Integration">
+                            <a href="https://github.com/richasinha12/Voice-Assistant-for-window---Agile-Loop-Hackathon" class="portfolio__link-name" target="_blank" title="See Video">
+                                <div class="portfolio__link">See Video</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i>Synapse Copilot Integration</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: GPT-4, Python, FastAPI, YouTube API, Open Weather Map</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Developed a voice-controlled system that integrates platforms like YouTube, Stack Overflow, and Windows navigation, allowing users hands-free access and management of content.</li>
+                            </ol>
+                        </p>
+                        <abbr title="GitHub"><a href="https://github.com/alidotdev/Synapse-Copilot" target="_blank"><i class="about__social-icon bx bxl-github bx-tada-hover"></i></a></abbr>
+                        <abbr title="Linkedin Post">
+                            <a href="https://www.linkedin.com/posts/alidotdev_linkedin-lablabai-hacktheloop-activity-7251591218533474305-s0y4?utm_source=share&utm_medium=member_desktop" target="_blank">
+                                <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i></a>
+                            </abbr>
+                    </div>
+            
+                </div>
+            </section>
             
             
-            arrList = JSON.parse(localStorage.getItem("items"));
-            arrList[index] = arr;
-            localStorage.setItem("items",JSON.stringify( arrList));
-            update();
-
-        }
 
 
+             <!-- Projects section-->
+             <section class="about section" id="projects">
 
-    </script>
+                <h2 class="section-title"><i class="bx bxs-card "></i> Projects</h2>
+                <div class="about__container bd-grid">
+                    
+                    <!-- Project 1 - Final Year Project -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/iot-vision.png" alt="IoT-Vision Enabled Assistant for Epileptic Patients">
+                            <a href="https://drive.google.com/file/d/1JxTvp7SNzh9NRKWGwsJlmaRzKfmDPzKU/view?usp=sharing" class="portfolio__link-name" target="_blank" title="Demo Video">
+                                <div class="portfolio__link">Demo Vide</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bx-chip bx-tada"></i> IoT-Vision Enabled Assistant for Epileptic Patients (FYP)</h2>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: Python, OpenCV, IoT devices, RabbitMQ, SQL, AWS EC2, PostgreSQL, React, Node.js, PyQt5</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Developed an IoT-based system to monitor and forecast seizures for epileptic patients using camera-based monitoring, ensuring personalized care.</li><br>
+                                <li>Implemented ML models and optical flow algorithms for action recognition and anomaly detection, with privacy protection and real-time alerts for caregivers.</li>
+                            </ol>
+                        </p>
+                        <abbr title="Concept Paper">
+                            <a href="https://drive.google.com/file/d/1URWFLnIf_-aqadIfwPDRUQbgCZs4EzNG/view?usp=sharing" target="_blank">
+                                <i class="about__social-icon bx bx-file bx-tada-hover"></i>
+                            </a>
+                        </abbr>
+                        <abbr title="Thesis">
+                            <a href="https://drive.google.com/file/d/1IyrNeFLWxEg76c4K1mdg0qPT19h1my53/view?usp=sharing" target="_blank">
+                                <i class="about__social-icon bx bx-book bx-tada-hover"></i>
+                            </a>
+                        </abbr>
+                        <abbr title="GitHub">
+                            <a href="https://drive.google.com/file/d/1IyrNeFLWxEg76c4K1mdg0qPT19h1my53/view?usp=sharing" target="_blank">
+                                <i class="about__social-icon bx bxl-github bx-tada-hover"></i>
+                            </a>
+                        </abbr>
+                    </div>
+            
+                    <!-- Project 2 - BERT-based NER System -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/bert-base-ner.jpg" alt="BERT-based NER for Endonasian Quranic Verses">
+                            <a href="https://github.com/alidotdev/BERT-base-NER-NLP" class="portfolio__link-name" target="_blank" title="GitHub Repository">
+                                <div class="portfolio__link">GitHub Repository</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bx-brain bx-tada"></i> BERT-based NER System for Endonasian Language Quranic Verses</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: Python, BERT, Transformers, NLP</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Implemented a Named Entity Recognition (NER) system using BERT to analyze and categorize entities in Quranic verses in the Endonasian language.</li><br>
+                                <li>Fine-tuned BERT for improved accuracy in identifying named entities within sacred text, aiding in semantic analysis and study.</li>
+                            </ol>
+                        </p>
+                    </div>
+            
+                    <!-- Project 3 - AI-based Face Sentiment Analysis -->
+                    <div class="card">
+                        <div class="portfolio__img">
+                            <img src="assets/img/sentiment.jpg" alt="AI-based Face Sentiment Analysis System">
+                            <a href="https://github.com/alidotdev/Sentiment-Analysis-AI-Project" class="portfolio__link-name" target="_blank" title="GitHub Repository">
+                                <div class="portfolio__link">GitHub Repository</div>
+                            </a>
+                        </div>
+                        <br>
+                        <h2 class="about__subtitle"><i class="bx bx-face bx-tada"></i> AI-based Face Sentiment Analysis System</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Technologies Used: Python, OpenCV, Deep Learning, CNN</span>
+                            </div>
+                        </div>
+                        <p class="about__text">
+                            <ol>
+                                <li>Developed an AI system to analyze facial expressions and classify emotions using convolutional neural networks (CNNs).</li><br>
+                                <li>Achieved high accuracy in emotion recognition, aiding applications in human-computer interaction and sentiment analysis.</li>
+                            </ol>
+                        </p>
+                    </div>
+            
+                </div>
+            </section>
+            
+
+        <!-- <section class="about section" id="portfolio">
+
+            <h2 class="section-title"><i class="bx bxs-card "></i> <span></span>Projects</h2>
+            <div class="about__container bd-grid">
+                
+
+                1st card project
+
+                <div class="card">
+
+                    <div class="portfolio__img">
+                        <img src="assets/img/voice.jpg" alt="image showing mic">
+                        <a href="https://drive.google.com/file/d/1QZz4oI83lXkKqG-AcVcJi1IoOvxJVQVf/view?usp=sharing" class="portfolio__link-name" target="_blank" title="Thesis link">
+                        <div class="portfolio__link">
+                            Thesis
+                        </div>
+                    </a>
+                    </div> <br>
+                    <h2 class="about__subtitle"><i class="bx bxs-music bx-tada"></i> <span></span>Bird's voice classification
+                    </h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">TensorFlow | Pandas | Numpy | Librosa | Flask | HTML | CSS
+
+                            </span>
+                        </div>
+                        
+                    </div>
+                   
+                    <p class="about__text">
+
+                        <ol>
+                            <li>Preprocessed audio with librosa to generate mel spectrograms and extract features for deep learning.</li> <br>
+    <li>Developed a deep CNN using TensorFlow for multi-class image classification, incorporating six convolutional layers with filters ranging from 16 to 1024.</li> <br>
+    <li>Achieved 80% accuracy on test data, evaluated model performance using F1 score, precision, recall, and confusion matrix.</li> <br>
+    <li>Built a Flask web interface with HTML/CSS for user interaction with the classification model.</li>
+                        </ol>
+                        </p>
+
+                  
+                 <abbr title="Thesis link"><a href="https://drive.google.com/file/d/1QZz4oI83lXkKqG-AcVcJi1IoOvxJVQVf/view?usp=sharing" target="_blank"><i class="about__social-icon bx  bx-book" style="font-size: 30px;"></i></a></abbr>
+                </div>
+
+
+                2nd project card
+
+                <div class="card">
+
+                    <div class="portfolio__img">
+                        <img src="assets/img/sentiment.jpg" alt="">
+                       <abbr title="Click to view code on GitHub">
+                        <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank">
+                            <div class="portfolio__link">
+                               View Code
+                            </div></a>
+                       </abbr>
+    
+                    </div> <br>
+                    <a href="https://github.com/Gulhassan786/Sentiment-Analysis" class="portfolio__link-name" target="_blank"> <h2 class="about__subtitle"><i class="bx bxs-happy bx-tada" ></i> <span></span>Sentiment-Analysis
+                    </h2></a>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">Sklearn| Support Vector Machine  | Pandas | Natural Language Toolkit | Streamlit | Metrics | Tfidf | Pickle
+                            </span>
+                        </div>
+                        
+                    </div>
+                   
+                    <p class="about__text">
+                        <ol>
+                            <li>The model predicts sentiment by analyzing linguistic patterns, emotional cues, and contextual features within the text.</li> <br>
+    <li>Developed NLP pipeline using NLTK to optimize text preprocessing and sentiment classification workflows.</li> <br>
+    <li>Utilized TF-IDF vectorizer for feature extraction and implemented an SVM model.</li> <br>
+    <li>Selected Support Vector Machine (SVM) from five machine learning algorithms due to its superior performance, 
+        achieving an accuracy of 0.89, with precision, recall, and F1-scores of 0.89.</li> <br>
+    <li>Created a Streamlit interface for real-time sentiment analysis and deployment.</li>
+                        </ol>
+                        </p>
+
+               <abbr title="Code link on GitHub">   <a href="https://github.com/Gulhassan786/Sentiment-Analysis">
+                <i class="about__social-icon bx bxl-github bx-tada-hover" ></i></a></abbr>
+                <abbr title="Webapp link"> <a href="https://sentiment-detection.streamlit.app/">
+                    <i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a></abbr>
+                </div>
+
+
+                    3rd project card
+
+                    <div class="card">
+
+                        <div class="portfolio__img">
+                            <img src="assets/img/handdigit.png" alt="">
+                            <abbr title="Click to view code on HuggingFace">
+                                <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">
+                                    <div class="portfolio__link">
+                                       View Code
+                                    </div></a>
+                            </abbr>
+        
+                        </div> <br>
+                        <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main" class="portfolio__link-name" target="_blank">  <h2 class="about__subtitle"><i class="bx bxs-edit-alt bx-tada" ></i> <span></span> Handwritten digit classification
+                        </h2> </a>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Sklearn| SVM  | Pandas | Streamlit | HuggingFace | Pickle
+                                </span>
+                            </div>
+                            
+                        </div>
+                       
+                        <p class="about__text">
+                            <ol>
+                                <li>Preprocessed the MNIST dataset through normalization and resizing to enhance data quality and
+                                     model performance.</li> <br>
+                                <li>Developed and serialized a Support Vector Machine (SVM) classifier for digit recognition, employing
+                                     robust techniques to optimize accuracy.</li> <br>
+                                <li>Achieved 97.77% accuracy with an SVM classifier on validation data and 97.82% accuracy on 
+                                    test data, with detailed confusion matrices demonstrating high classification performance across digit categories.</li> <br>
+                                <li>Designed and deployed a Streamlit interface for the model, hosting the application on Hugging Face for accessible and interactive digit recognition.</li>
+                            </ol>
+
+                            </p>
+    
+                  <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation/tree/main">
+                    <abbr title="Code link on HuggingFace"> <i class="about__social-icon bx bxl-github bx-tada-hover" ></i></abbr></a>
+                 
+                <abbr title="Webapp link">
+                    <a href="https://huggingface.co/spaces/Gul-Hassan/Digit-recognation"><i class="about__social-icon bx bx-globe bx-tada-hover" ></i></a> 
+                </abbr>  
+
+                    </div>
+    
+               
+
+        </section> -->
+
+        <!-- Volunteer Experiences -->
+         
+
+<!-- Education -->
+
+            <section class="about section" id="education">
+            <h2 class="section-title"><i class="bx bxs-book " ></i>Education</h2>
+            <div style="justify-content: center; width: 100%; display: flex;">
+                <div class="about__container bd-grid" style="grid-template-columns: 1fr; max-width: 550px; margin: 0 auto;">
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bxs-graduation bx-tada" ></i>BS Computer Science </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">University Of Engineering and Technology (UET) Lahore</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Oct’20  —  Apr’24</span></div>
+                        </div>
+                        <p class="about__text">
+                            <b>GPA 3.48</b> <br>
+                            <br>
+                            <b>Core courses: </b>Data Structures and Algorithms, Database Systems, Discrete Mathematics, Software Engineering, Artificial Intelligence, Calculus, DSA, Probability and Statistics, etc.
+                        </p>
+    
+                    </div>
+    
+                    <!-- <div class="card">
+                        <h2 class="about__subtitle"><i class="bx  bxs-graduation bx-tada" ></i>Higher Secondary School
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Gov: Ali baba degree college</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Jan’20 —  Dec’19</span></div>
+                        </div>
+                        <p class="about__text">
+                            <b>Pre-medical</b> <br>
+                             <b>Elective courses:</b> Computer Vision, Data Science, DSA, Python, Web development, Android app development, Statistics, Linear Algebra, Calculus, C++, Java, software engineering   
+                        </p>
+    
+                    </div>  -->
+    
+                </div>
+            </div>
+            </section>
+            
+
+
+                <!-- Experience -->
+                <section class="about section" id="experience">
+                <h2 class="section-title"><i class="bx bxs-pin "></i>Experience</h2>
+                <div class="about__container bd-grid">
+                
+                    <!-- Experience 1 -->
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>AI/ML Intern</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">AllZone Technologies, Lahore, Pakistan</span>
+                            </div>
+                            <div class="col">
+                                <span style="color: #5965e9; text-align:right;">Sep – Oct 202X</span>
+                            </div>
+                        </div>
+                        
+                        <p class="about__text">
+                            <ol>
+                                <li>Gained hands-on experience with core ML algorithms, including Linear Regression, Logistic Regression, Decision Trees, and Random Forests.</li><br>
+                                <li>Developed proficiency in Docker containerization and version control using Git to optimize software engineering practices.</li><br>
+                                <li>Explored Transformers and self-attention models, referencing Google’s <a href="https://arxiv.org/abs/1706.03762" style="color: #5965e9;">"Attention is All You Need"</a> for deep learning applications.</li>
+                            </ol>
+                        </p>
+                    </div>
+                
+                    <!-- Experience 2 -->
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>AI/ML Intern</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">CVML Lab Kics, Lahore, Pakistan</span>
+                            </div>
+                            <div class="col">
+                                <span style="color: #5965e9; text-align:right;">July – Sep 2023</span>
+                            </div>
+                        </div>
+                        
+                        <p class="about__text">
+                            <ol>
+                                <li>Experienced in using PyTorch for deep learning model development.</li><br>
+                                <li>Collaborated with a team to develop CNN-based image classifiers, guided by the book 
+                                    <a href="https://isip.piconepress.com/courses/temple/ece_4822/resources/books/Deep-Learning-with-PyTorch.pdf" 
+                                    style="color: #5965e9;">"Deep Learning with PyTorch"</a>.</li>
+                            </ol>
+                        </p>
+                    </div>
+                
+                    <!-- Experience 3 -->
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Desktop App Developer Intern</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Soft Cube, Lahore, Pakistan</span>
+                            </div>
+                            <div class="col">
+                                <span style="color: #5965e9; text-align:right;">July – Sep 2021</span>
+                            </div>
+                        </div>
+                        
+                        <p class="about__text">
+                            <ol>
+                                <li>Contributed to a .NET-based desktop application for a Secured Online Examination System.</li><br>
+                                <li>Implemented <b> 13 security features </b>, including data encryption, internet blockage, and window restriction.
+                                <a href="https://github.com/alidotdev/SpikoExam_Application" style="color: #5965e9;">
+                                    GitHub Repository
+                                </a>
+                            </li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+                </section>
+
+
+                <!-- Experience -->
+                <!-- <h2 class="section-title"><i class="bx bxs-pin " ></i>Experience</h2>
+                <div class="about__container bd-grid">
+    
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Regional Ambassador
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Hackmakers</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Apr’22 —  May’22</span></div>
+                        </div>
+                       
+                        <p class="about__text">
+                           <ol>
+                            <li>Partnerships were secured through MoUs with over 2 universities, 2 student clubs/organizations, and 2 companies.</li> <br>
+    <li>Collaboration and growth were fostered within the Hackmakers community in Pakistan through strategic partnerships.</li>
+                        </ol>
+                            
+                        </p>
+    
+                    </div>
+
+    
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada"></i>Data Analyst
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">Fiverr</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 —  Dec’21</span></div>
+                        </div>
+                       
+                        <p class="about__text">
+                           <ol>
+                            <li>Partnered with international clients on over 2 analytical projects, providing data-driven insights and solutions.</li> <br>
+                            <li>Developed and maintained interactive dashboards using Google Sheets and Data Studio to track key performance metrics.</li> <br>
+                            <li>Delivered comprehensive reports that identified trends, supported decision-making, and improved business outcomes.</li>
+                           </ol>
+
+                        </p>
+    
+                    </div>
+    
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-medal bx-tada" ></i>Moderator and Trainer
+                        </h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;">iCode Guru, USA</span>
+                            </div>
+                            <div class="col"> <span style="color: #5965e9; text-align:right;">Dec’20 — June’22</span></div>
+                        </div>
+    
+                        <p class="about__text" style="margin-top: 10px;">
+                            <ol>
+                                <li>Taught 4+ courses on data analysis using Google spreadsheets,<a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo.php?fbid=320120893452731&set=t.100063644695494&type=3" target="_blank"><u> Data Analysis1</u></a>,
+                                     and <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=285552163576271&set=pb.100063644695494.-2207520000" target="_blank"> <u>Data Analysis2</u></a>.</li> <br>
+    <li>Instructed in a 5-week long <a style="color: #5965e9; text-align: center;" href="https://docs.google.com/spreadsheets/d/1_QuQTw6JIQN6o3yX6sQFysEtSk9nwXxjSCGZOgJY3tk/edit?usp=sharing" target="_blank"> <u>IELTS course</u></a>.</li> <br>
+    <li>Designed and conducted a comprehensive Python course, covering fundamentals to intermediate levels 
+        and incorporating problem-solving techniques from LeetCode.</li> <br>
+    <li>Conducted workshops on Python, Data Analysis, VS Code, Git, and GitHub at iCodeGuru.</li> <br>
+    <li>Managed workshops as a lead, covering areas like Data Structures and Algorithms, 
+        <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=327509042411855&set=pb.100063644695494.-2207520000" target="_blank"><u>Computer Vision</u></a>, 
+        Machine Learning,
+        <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=324780862986734&set=pb.100063644695494.-2207520000" target="_blank"><u>Data Manipulation</u></a>,
+         <a style="color: #5965e9; text-align: center;" href="https://web.facebook.com/photo/?fbid=334381345360019&set=pb.100063644695494.-2207520000" target="_blank"> <u>Data Analysis</u></a>,
+          and  iCodeGuru and the 
+          <a style="color: #5965e9; text-align: center;" href="https://www.usindh.edu.pk/" target="_blank" rel="noopener noreferrer"> <u>University of Sindh</u></a>.</li>
+
+                            </ol>
+
+                           
+                        </p>
+                            
+                    </div>
+
+                </div> -->
+
+
+
+
+                <!-- <h2 class="section-title"><i class='bx  bxs-book-open' ></i> <span></span>MOOCs</h2>
+                <div class="about__container bd-grid">
+                    
+                    
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Stat 453 Introduction to deep learning and generative models</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> <a href="https://pages.stat.wisc.edu/~sraschka/teaching/stat453-ss2020/" style="color: #5965e9;"><u>UW-Madison</u></a></span>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+
+
+                    
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Prompt Engineering</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> <a href="https://www.deeplearning.ai/" style="color: #5965e9;"><u>deeplearning.ai</u></a></span>
+                            </div>
+                
+                        </div>
+    
+                    </div>
+                
+                    
+
+                    <div class="card">
+                        <h2 class="about__subtitle"><i class="bx bx-tada bx-book-reader"></i>Machine Learning</h2>
+                        <div class="row hack" style="display:block;">
+                            <div class="col">
+                                <span style="color: #5965e9; text-align: left;"> Youtube, iCodeGuru, Kaggle</span>
+                            </div>
+                
+                        </div>
+    
+                    </div> -->
+
+        </section>
+
+        <!-- My Public Webinars -->
+
+        <section class="about section" id="public-webinars">
+            <h2 class="section-title"><i class="bx bx-podcast"></i> Public Webinars</h2>
+            <div class="about__container bd-grid">
+                
+                <!-- Webinar 1 - IEEE WIE UNSB -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-microphone bx-tada"></i> Webinar Speaker</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">IEEE WIE UNSB - Online</span>
+                        </div>
+                        <div class="col">
+                            <span style="color: #5965e9; text-align:right;">July 09, 2024</span>
+                        </div>
+                    </div>
+                    <p class="about__text">
+                        Delivered a webinar titled <b>"Mastering Python and Career Opportunities in Computer Sciences"</b> to students of multiple departments at UET Narowal. Provided insights into programming fundamentals and potential career growth paths in computer science.
+                    </p>
+                    <abbr title="Linkedin Post">
+                        <a href="https://www.linkedin.com/posts/alidotdev_python-careeropportunities-computerscience-activity-7216745708383531010-JaAO?utm_source=share&utm_medium=member_desktop" 
+                        target="_blank">
+                        <!-- <i class="about__social-icon bx bx-link-external bx-tada-hover"></i> -->
+                        <!-- <i class="about__social-icon bx bx-linkedin bx-tada-hover"></i> -->
+                        <i class="about__social-icon bx bxl-linkedin bx-tada-hover"></i>
+                        </a>
+                    </abbr>
+                </div>
+        
+                <!-- Webinar 2 - iCodeGuru -->
+                <div class="card">
+                    <h2 class="about__subtitle"><i class="bx bx-microphone bx-tada"></i> Introduction to Trees and Tree Traversal</h2>
+                    <div class="row hack" style="display:block;">
+                        <div class="col">
+                            <span style="color: #5965e9; text-align: left;">iCodeGuru - Online</span>
+                        </div>
+                        <div class="col">
+                            <span style="color: #5965e9; text-align:right;">Oct 26, 2024</span>
+                        </div>
+                    </div>
+                    <p class="about__text">
+                        Conducted a beginner-friendly webinar on <b>"Introduction to Trees and Tree Traversal"</b> covering basic concepts, tree structures, and essential traversal techniques.
+                    </p>
+                    <abbr title="Webinar Recording"><a href="https://youtu.be/zTx2a_aLpkE?si=YQXFNlICDKqbi3cU" target="_blank"><i class="about__social-icon bx bxl-youtube bx-tada-hover"></i></a></abbr>
+                </div>
+        
+            </div>
+        </section>
+
+
+        <!--===== SKILLS =====-->
+
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+        
+            <div class="skills__container bd-grid">
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Core Competencies</h3>
+                    <p class="skills__text">Machine Learning (Regression, Decision Trees, Random Forest), Deep Learning (CNN, RNN, PyTorch, TensorFlow), NLP (BERT, NER, Sentiment Analysis), Computer Vision (OpenCV, Object Detection)</p>
+        
+                    <h3 class="skills__subtitle">Web Development & Databases</h3>
+                    <p class="skills__text">HTML, CSS, Flask, .NET, Node.js, React, SQL, MySQL, PostgreSQL, MongoDB, SQLite</p>
+        
+                    <h3 class="skills__subtitle">Programming & Tools</h3>
+                    <p class="skills__text">Python, C++, Java, Dart, Docker, Git, Jupyter, VS Code, Google Colab</p>
+        
+                    <h3 class="skills__subtitle">Data Analysis</h3>
+                    <p class="skills__text">Numpy, Pandas, Matplotlib, Seaborn</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+        
+            <div class="skills__container bd-grid">
+                <div class="skills__box">
+                    <h3 class="skills__subtitle">Machine Learning</h3>
+                    <p class="skills__text">Linear Regression, Logistic Regression, Decision Trees, Random Forest, BERT, Transformers, Self-Attention</p>
+        
+                    <h3 class="skills__subtitle">Deep Learning</h3>
+                    <p class="skills__text">CNN, RNN, SlowFast Network, PyTorch, TensorFlow</p>
+        
+                    <h3 class="skills__subtitle">Natural Language Processing</h3>
+                    <p class="skills__text">NER, Sentiment Analysis, Text Processing, GPT-based Models</p>
+        
+                    <h3 class="skills__subtitle">Computer Vision</h3>
+                    <p class="skills__text">OpenCV, Image Classification, Object Detection, Face Sentiment Analysis</p>
+        
+                    <h3 class="skills__subtitle">Web Development</h3>
+                    <p class="skills__text">HTML, CSS, Flask, .NET, Node.js, React</p>
+        
+                    <h3 class="skills__subtitle">Databases</h3>
+                    <p class="skills__text">SQL, MySQL, PostgreSQL, MongoDB, SQLite</p>
+        
+                    <h3 class="skills__subtitle">Programming Languages</h3>
+                    <p class="skills__text">Python, C++, C#, Java, Dart</p>
+        
+                    <h3 class="skills__subtitle">Frameworks and Libraries</h3>
+                    <p class="skills__text">Flask, Django, FastAPI, Hugging Face, Streamlit, PyQt5</p>
+        
+                    <h3 class="skills__subtitle">Tools</h3>
+                    <p class="skills__text">Docker, Git, GitHub, Jupyter Notebook, VS Code, Google Colab</p>
+        
+                    <h3 class="skills__subtitle">Data Analysis</h3>
+                    <p class="skills__text">Numpy, Pandas, Matplotlib, Seaborn</p>
+                </div>
+            </div>
+        </section> -->
+        
+
+        <!-- <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+        
+            <div class="skills__container bd-grid">
+                <div class="skills__box">
+                    <h4 class="skills__subtitle">Machine Learning</h4>
+                    <span class="skills__name">Linear Regression</span>
+                    <span class="skills__name">Logistic Regression</span>
+                    <span class="skills__name">Decision Trees</span>
+                    <span class="skills__name">Random Forest</span>
+                    <span class="skills__name">BERT</span>
+                    <span class="skills__name">Transformers</span>
+                    <span class="skills__name">Self-Attention Models</span>
+        
+                    <h4 class="skills__subtitle">Deep Learning</h4>
+                    <span class="skills__name">CNN</span>
+                    <span class="skills__name">RNN</span>
+                    <span class="skills__name">SlowFast Network</span>
+                    <span class="skills__name">PyTorch</span>
+                    <span class="skills__name">TensorFlow</span>
+        
+                    <h4 class="skills__subtitle">Natural Language Processing</h4>
+                    <span class="skills__name">Named Entity Recognition (NER)</span>
+                    <span class="skills__name">Sentiment Analysis</span>
+                    <span class="skills__name">Text Processing</span>
+                    <span class="skills__name">GPT-based Models</span>
+        
+                    <h4 class="skills__subtitle">Computer Vision</h4>
+                    <span class="skills__name">OpenCV</span>
+                    <span class="skills__name">Image Classification</span>
+                    <span class="skills__name">Object Detection</span>
+                    <span class="skills__name">Face Sentiment Analysis</span>
+        
+                    <h4 class="skills__subtitle">Web Development</h4>
+                    <span class="skills__name">HTML</span>
+                    <span class="skills__name">CSS</span>
+                    <span class="skills__name">Flask</span>
+                    <span class="skills__name">.NET</span>
+                    <span class="skills__name">Node.js</span>
+                    <span class="skills__name">React</span>
+        
+                    <h4 class="skills__subtitle">Databases</h4>
+                    <span class="skills__name">SQL</span>
+                    <span class="skills__name">MySQL</span>
+                    <span class="skills__name">PostgreSQL</span>
+                    <span class="skills__name">MongoDB</span>
+                    <span class="skills__name">SQLite</span>
+        
+                    <h4 class="skills__subtitle">Programming Languages</h4>
+                    <span class="skills__name">Python</span>
+                    <span class="skills__name">C++</span>
+                    <span class="skills__name">C#</span>
+                    <span class="skills__name">Java</span>
+                    <span class="skills__name">Dart</span>
+        
+                    <h4 class="skills__subtitle">Frameworks and Libraries</h4>
+                    <span class="skills__name">Flask</span>
+                    <span class="skills__name">Django</span>
+                    <span class="skills__name">FastAPI</span>
+                    <span class="skills__name">Hugging Face</span>
+                    <span class="skills__name">Streamlit</span>
+                    <span class="skills__name">PyQt5</span>
+        
+                    <h4 class="skills__subtitle">Tools</h4>
+                    <span class="skills__name">Docker</span>
+                    <span class="skills__name">Git</span>
+                    <span class="skills__name">GitHub</span>
+                    <span class="skills__name">Jupyter Notebook</span>
+                    <span class="skills__name">VS Code</span>
+                    <span class="skills__name">Google Colab</span>
+        
+                    <h4 class="skills__subtitle">Data Analysis</h4>
+                    <span class="skills__name">Numpy</span>
+                    <span class="skills__name">Pandas</span>
+                    <span class="skills__name">Matplotlib</span>
+                    <span class="skills__name">Seaborn</span>
+        
+                </div>
+            </div>
+        </section>       -->
+
+
+        <!-- <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills__container bd-grid">
+                <div class="skills__box">
+                    <h4 class="skills__subtitle">Development</h4>
+                    <span class="skills__name">Html</span>
+                    <span class="skills__name">Css</span>
+                    <span class="skills__name">Javascript</span>
+                    <span class="skills__name">Scss</span>
+                    <span class="skills__name">React</span>
+                    <span class="skills__name">Vue</span>
+
+                    <h4 class="skills__subtitle">Design</h3>
+                    <span class="skills__name">Figma</span>
+                    <span class="skills__name">Adobe XD</span>
+                    <span class="skills__name">Photoshop</span>
+
+                </div>
+
+                <div class="skills__img">
+                    <img src="assets/img/skill.jpg" alt="">
+                </div> 
+            </div>
+        </section> -->
+
+        <!--===== PORTFOLIO =====-->
+        <!-- <section class="portfolio section" id="portfolio">
+            <h2 class="section-title">Portfolio</h2>
+
+            <div class="portfolio__container bd-grid">
+                <div class="portfolio__img">
+                    <img src="assets/img/work1.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+
+                </div>
+                <div class="portfolio__img">
+                    <img src="assets/img/work2.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+                </div>
+                <div class="portfolio__img">
+                    <img src="assets/img/work3.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+                </div>
+                <div class="portfolio__img">
+                    <img src="assets/img/work4.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+                </div>
+                <div class="portfolio__img">
+                    <img src="assets/img/work5.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+                </div>
+                <div class="portfolio__img">
+                    <img src="assets/img/work6.jpg" alt="">
+
+                    <div class="portfolio__link">
+                        <a href="#" class="portfolio__link-name">View details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+ -->
+
+
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title"><i class='bx bxs-contact '></i> <span></span>Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle"><i class='bx bxs-envelope bx-tada' style="font-size: 20px;"> </i> <span></span>EMAIL</h3>
+                   <a href="mailto:gul.hassan.h43@gmail.com"><span class="contact__text"><u>alidotdev2210@gmail.com</u></span></a>
+
+                    <h3 class="contact__subtitle"><i class='bx bxs-phone bx-tada' style="font-size: 20px;"></i> <span></span>PHONE</h3>
+                    <span class="contact__text">+92 (312) 4922 033</span>
+
+                    <h3 class="contact__subtitle"><i class='bx bxs-home bx-tada'style="font-size: 20px;"></i> <span></span>ADRESS</h3>
+                    <span class="contact__text">Lahore, Pakistan</span>
+                </div>
+
+                <div class="contact__form">
+                    <form id="FORM_ID" method="POST" class="contact__form"
+                        action="https://script.google.com/macros/s/AKfycbwbcQoptyB7GFCE7in7064vo9gbSvKjoucA_vE-y4UtvKFecME7X0gZtCQAl5lxzdZH/exec">
+
+                        <input id="Name" type="text" placeholder="Name" name="Name" class="contact__input" required>
+                        <input id="Email" type="email" placeholder="Email" name="Email" class="contact__input" required>
+
+                        <textarea id="Message" name="Message" rows="10" class="contact__input"></textarea>
+                        <button type="submit" class="contact__button"><i class='about__social-icon bx bx-send bx-tada'></i></button>
+                    </form>
+
+                    <script type="text/javascript">
+                        window.addEventListener("DOMContentLoaded", function () {
+                            const yourForm = document.getElementById('FORM_ID');
+                            if (yourForm) {
+                                yourForm.addEventListener("submit", function (e) {
+                                    e.preventDefault();
+                                    const data = new FormData(yourForm);
+                                    const action = e.target.action;
+                                    fetch(action, {
+                                        method: 'POST',
+                                        body: data,
+                                    })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                // Reset form fields
+                                                yourForm.reset();
+                                                alert("Form submitted successfully!");
+                                            } else {
+                                                alert("Failed to submit form. Please try again.");
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            showAlert("Sent sucessfuly!");
+                                            yourForm.reset();
+                                        });
+                                });
+                            } else {
+                                console.error('Form element with ID "FORM_ID" not found.');
+                            }
+                        });
+
+                        function showAlert(message) {
+                            const alertElement = document.createElement('div');
+                            alertElement.classList.add('alert');
+                            alertElement.textContent = message;
+                            document.body.appendChild(alertElement);
+
+                            // Automatically dismiss the alert after 3 seconds (3000 milliseconds)
+                            setTimeout(function () {
+                                if (alertElement) {
+                                    alertElement.remove();
+                                }
+                            }, 6000);
+                        }
+
+                    </script>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Muhammad Ali Murtaza</h2>
+
+                <p class="footer__text">I'm Muhammad Ali and this is my personal website</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="#home" class="footer__link">Home</a></li>
+                    <li><a href="#about" class="footer__link">About</a></li>
+                    <li><a href="#achivements" class="footer__link">Achivements</a></li>
+                    <li><a href="#volunteer-activities" class="footer__link">Volunteer Activities</a></li>
+                    <li><a href="#international-hackathons" class="footer__link">Hackathons</a></li>
+                    <li><a href="#projects" class="footer__link">Projects</a></li>
+                    <li><a href="#education" class="footer__link">Education</a></li>
+                    <li><a href="#experience" class="footer__link">Experience</a></li>
+                    <li><a href="#public-webinars" class="footer__link">Public Webinars</a></li>
+                    <li><a href="#skills" class="footer__link">Skills</a></li>
+                    <li><a href="#contact" class="footer__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="https://www.linkedin.com/in/alidotdev/" class="footer__social" target="_blank"><i class='bx bxl-linkedin bx-tada-hover'></i></a>
+                <a href="https://github.com/alidotdev" class="footer__social" target="_blank"><i class='bx bxl-github bx-tada-hover'></i></a>
+                <a href="https://medium.com/@alidotdev"  class="footer__social" style="font-size: 25px;" target="_blank"><i class='bx bxl-medium bx-tada-hover'></i></a>
+                <a href="https://youtube.com/@alidotdev"  class="footer__social" style="font-size: 25px;" target="_blank"><i class='bx bxl-youtube bx-tada-hover'></i></a>
+            </div>
+            <!-- Copyright section -->
+            <div class="footer__copyright">
+                <p class="footer__text">&copy; 2024 Muhammad Ali Murtaza. All rights reserved.</p>
+            </div>
+
+        </div>
+
+        <!-- Copyright section -->
+    <!-- <div class="footer__copyright">
+        <p>&copy; 2024 Gul Hassan. All rights reserved.</p>
+    </div> -->
+
+    </footer>
+
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
